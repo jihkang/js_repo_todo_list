@@ -1,16 +1,21 @@
 // 2021 0209 tue
+// button or event listener 를 통해 데이터를 변화시킬 예정.
+// 아직 미구현.
+// 전역 변수로 설정되어 있는 녀석들도 제거 하여 구현할 예정.
 const clock = document.querySelector(".js-form");
 const clockContainer = clock.querySelector("h4");
 
-// button or event listener 를 통해 데이터를 변화시킬 예정.
-// 아직 미구현.
 const hour_24 = true;
 
-function setTime(txt, time) {
-    if (time == true) {
-        clockContainer.innerText = "am" + txt;
+function setTime(txt, afternoon) {
+    if (hour_24 == true) {
+        clockContainer.innerText = txt;
     } else {
-        clockContainer.innerText = "pm" + txt;
+        if (hour_24 == true) {
+            clockContainer.innerText = "am" + txt;
+        } else {
+            clockContainer.innerText = "pm" + txt;
+        }
     }
 }
 
@@ -38,7 +43,7 @@ function getTime() {
 }
 
 function init() {
-    // interval 로 구현하였으나 인터벌 대신 다른 방법을 이용해 보고자 함.
+    getTime();
     timer = setInterval(getTime, 1000);
 }
 
