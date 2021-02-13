@@ -1,9 +1,6 @@
-// 2021 0209 tue
-// button or event listener 를 통해 데이터를 변화시킬 예정.
-// 아직 미구현.
-// 전역 변수로 설정되어 있는 녀석들도 제거 하여 구현할 예정.
+
 const clock = document.querySelector(".js-form"),
-  clockTexter = clock.querySelector("h1");
+  clockTexter = clock.querySelector("h1"),
   clockContainer = clock.querySelector("h4");
 
 const hour_24 = true;
@@ -28,7 +25,7 @@ function changedDay(time) {
     }
 }
 
-function getTime(target) {
+export default function getTime(target) {
     var time = new Date();
 
     var hour = time.getHours();
@@ -63,11 +60,11 @@ function remainDate(target) {
 }
 
 function init() {
-    targetDate = new Date("2022-06-14:00:00:00+0900");
+    var targetDate = new Date("2022-06-14:00:00:00+0900");
 
     remainDate(targetDate - new Date());
     getTime(targetDate);
-    timer = setInterval(getTime, 1000);
+    var timer = setInterval(getTime, 1000);
 }
 
 init();
